@@ -23,6 +23,7 @@ GRANT ALL PRIVILEGES ON DATABASE emergency_project TO emergency_admin;
 -- Auth Database Schema
 -- =============================================================================
 \c emergency_auth;
+GRANT ALL ON SCHEMA public TO emergency_admin;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
@@ -48,6 +49,7 @@ CREATE INDEX idx_users_role ON users(role);
 -- Messaging Database Schema
 -- =============================================================================
 \c emergency_messaging;
+GRANT ALL ON SCHEMA public TO emergency_admin;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 CREATE EXTENSION IF NOT EXISTS "pgcrypto";
@@ -98,6 +100,7 @@ CREATE INDEX idx_messages_created ON messages(created_at DESC);
 -- Events Database Schema
 -- =============================================================================
 \c emergency_events;
+GRANT ALL ON SCHEMA public TO emergency_admin;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
@@ -138,6 +141,7 @@ CREATE INDEX idx_audit_created ON audit_log(created_at DESC);
 -- Prediction Database Schema
 -- =============================================================================
 \c emergency_prediction;
+GRANT ALL ON SCHEMA public TO emergency_admin;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
@@ -180,6 +184,7 @@ INSERT INTO prediction_rules (name, description, condition_expr, action_type, pr
 -- DSL Database Schema
 -- =============================================================================
 \c emergency_dsl;
+GRANT ALL ON SCHEMA public TO emergency_admin;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
@@ -215,6 +220,7 @@ CREATE INDEX idx_executions_status ON protocol_executions(status);
 -- Project Management Database Schema
 -- =============================================================================
 \c emergency_project;
+GRANT ALL ON SCHEMA public TO emergency_admin;
 
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
