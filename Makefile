@@ -110,3 +110,7 @@ redis-cli: ## Connect to Redis
 clean: ## Remove all containers, volumes, and images
 	$(DC) "down -v --remove-orphans --rmi local"
 	@echo "🧹 Cleaned up all containers and volumes"
+
+reset-incidents: ## Clear only the incident history from the database
+	$(DC) "exec postgres psql -U emergency_admin -d emergency_main -c 'TRUNCATE TABLE events CASCADE;'"
+	@echo "🗑️ Incident history cleared."
